@@ -21,6 +21,8 @@ def PP_titanic_function(df_model):
 
     # Criando uma nova feature
     df_model["Taxa_x_SibSp"] = df_model["Fare"] * df_model["SibSp"]
+    df_model['is_woman'] = (df_model['Sex'] == 'female').astype(int)
+    df_model = df_model.drop(columns=['Sex'])
 
     # Corrigindo o dtype da coluna 'Pclass' para object:
     df_model['Pclass'] = df_model['Pclass'].astype(str)
